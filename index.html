@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site en Construction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2c3e50;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ecf0f1;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.5s backwards;
+        }
+
+        /* Gear Animation */
+        .gears {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+        }
+
+        .gear {
+            position: absolute;
+            border-radius: 50%;
+            background: #e67e22;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gear::after {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            background: #2c3e50;
+            border-radius: 50%;
+        }
+
+        .gear-big {
+            width: 80px;
+            height: 80px;
+            top: 20px;
+            left: 10px;
+            box-shadow: 0 0 0 5px rgba(230, 126, 34, 0.2);
+            animation: spin 4s linear infinite;
+        }
+
+        .gear-small {
+            width: 50px;
+            height: 50px;
+            top: 70px;
+            left: 80px;
+            background: #f39c12;
+            box-shadow: 0 0 0 5px rgba(243, 156, 18, 0.2);
+            animation: spin-reverse 3s linear infinite;
+        }
+
+        /* Teeth for gears */
+        .tooth {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        
+        .tooth::before, .tooth::after {
+            content: '';
+            position: absolute;
+            background: inherit;
+            border-radius: 5px;
+        }
+
+        .gear-big .tooth::before { width: 10px; height: 100px; left: 35px; top: -10px; }
+        .gear-big .tooth::after { width: 100px; height: 10px; left: -10px; top: 35px; }
+        
+        .gear-small .tooth::before { width: 8px; height: 60px; left: 21px; top: -5px; }
+        .gear-small .tooth::after { width: 60px; height: 8px; left: -5px; top: 21px; }
+
+        .tooth-rotate {
+            transform: rotate(45deg);
+        }
+
+        /* Loading Bar */
+        .loader {
+            width: 200px;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loader::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            background: #e67e22;
+            border-radius: 10px;
+            animation: loading 2s ease-in-out infinite;
+        }
+
+        /* Keyframes */
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-reverse {
+            100% { transform: rotate(-360deg); }
+        }
+
+        @keyframes loading {
+            0% { left: -50%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 0.8; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="gears">
+            <div class="gear gear-big">
+                <div class="tooth"></div>
+                <div class="tooth tooth-rotate"></div>
+            </div>
+            <div class="gear gear-small">
+                <div class="tooth"></div>
+                <div class="tooth tooth-rotate"></div>
+            </div>
+        </div>
+
+        <h1>En Construction</h1>
+        <p>Nous préparons quelque chose d'incroyable. Revenez bientôt !</p>
+        
+        <div class="loader"></div>
+    </div>
+
+</body>
+</html>
